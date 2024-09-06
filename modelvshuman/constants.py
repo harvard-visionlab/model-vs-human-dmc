@@ -55,10 +55,11 @@ PLOT_TYPE_TO_DATASET_MAPPING = {
     # default plot types:
     "shape-bias": ["cue-conflict"],
     "accuracy": NOISE_GENERALISATION_DATASETS,
-    "error-consistency-lineplot": NOISE_GENERALISATION_DATASETS,
-    "error-consistency": ["cue-conflict", "edge", "silhouette", "sketch", "stylized"],
+    "nonparametric-benchmark-barplot": ["edge", "silhouette", "sketch", "stylized"],
     "benchmark-barplot": DEFAULT_DATASETS,
     "scatterplot": DEFAULT_DATASETS,
+    "error-consistency-lineplot": NOISE_GENERALISATION_DATASETS,
+    "error-consistency": ["cue-conflict", "edge", "silhouette", "sketch", "stylized"],
     # 'unusual' plot types:
     "entropy": NOISE_GENERALISATION_DATASETS,
     "confusion-matrix": DEFAULT_DATASETS,

@@ -1,4 +1,9 @@
+figures/*
+raw-data/*
+src/*
 datasets/*
+#examples/*
+latex-report/*.pdf
 
 modelvshuman/.idea/
 

@@ -16,6 +16,65 @@ def model_pytorch(model_name, *args):
     model = torch.nn.DataParallel(model)
     return PytorchModel(model, model_name, *args)
 
+@register_model("pytorch")
+def alexnet2023_baseline_pgd(model_name, *args):
+    from .model_rearing import adversarially_robust_alexnets as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_tiny_patch16_224_mlp_supscram(model_name, *args):
+    from .confignets import runs05_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_tiny_patch16_224_mlp_configclr2_alpha090_0(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_tiny_patch16_224_mlp_configclr2_alpha090_1(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_tiny_patch16_224_mlp_configclr2_alpha090_2(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_tiny_patch16_224_mlp_configclr2_alpha090_3(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_base_patch16_224_mlp_simclr_0(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_base_patch16_224_mlp_simclr_1(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_base_patch16_224_mlp_simclr_2(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def vit_base_patch16_224_mlp_simclr_3(model_name, *args):
+    from .confignets import runs04_vits as config_models
+    model = config_models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
 
 @register_model("pytorch")
 def resnet50_trained_on_SIN(model_name, *args):

@@ -1,7 +1,7 @@
 # model-vs-human-dmc
 This project is forked from the official [model-vs-human repo](https://github.com/bethgelab/model-vs-human), and modified to apply signal-detection-theory when comparing the decisions of different decision makers (whether model or human). TLDR, using signal detection theory show stronger human-vs-human and model-vs-model alignment, but increases the gap between models and humans.
 
-Paper coming soon...
+Paper and updates to this README coming soon...
 
 ![header](./assets/header/header.png "header")
 

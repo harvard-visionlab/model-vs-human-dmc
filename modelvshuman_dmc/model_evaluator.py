@@ -2,10 +2,12 @@ import copy
 import datetime
 import logging
 import os
+import numpy as np
 
 import torch
 from tqdm import tqdm
 
+from .helper.decision_margin_distance import compute_decision_margin_distance
 from .datasets import ToTensorflow
 from .evaluation import evaluate as e
 from .utils import load_dataset, load_model
@@ -42,13 +44,24 @@ class ModelEvaluator:
 
             for images, target, paths in tqdm(dataset.loader):
                 images = images.to(device())
-                logits = model.forward_batch(images)
-                softmax_output = model.softmax(logits)
+                logits = model.forward_batch(images)                
                 if isinstance(target, torch.Tensor):
                     batch_targets = model.to_numpy(target)
                 else:
                     batch_targets = target
-                predictions = dataset.decision_mapping(softmax_output)
+                # softmax_output = model.softmax(logits) # aggregate logits, then softmax
+                predictions, sorted_probs, sorted_logits = dataset.decision_mapping(logits, model.softmax)
+                
+                # get the response (logit) to the target
+                target_mask = predictions == np.array(batch_targets)[:, np.newaxis]                                
+                target_act = sorted_logits[target_mask]
+                
+                # get the max response (logit) among non-targets
+                non_targets = ~target_mask
+                non_target_act = np.where(non_targets, sorted_logits, np.nan)
+                max_nontarget_act = np.nanmax(non_target_act, axis=1)
+                decision_margin = compute_decision_margin_distance(target_act, max_nontarget_act)                
+        
                 for metric in dataset.metrics:
                     metric.update(predictions,
                                   batch_targets,
@@ -56,7 +69,10 @@ class ModelEvaluator:
                 if kwargs["print_predictions"]:
                     result_writer.print_batch_to_csv(object_response=predictions,
                                                      batch_targets=batch_targets,
-                                                     paths=paths)
+                                                     paths=paths,
+                                                     target_act=target_act,
+                                                     max_nontarget_act=max_nontarget_act, 
+                                                     decision_margin=decision_margin)
 
     def _tensorflow_evaluator(self, model_name, model, dataset, *args, **kwargs):
         """
@@ -82,7 +98,7 @@ class ModelEvaluator:
         for images, target, paths in tqdm(dataset.loader):
             logits = model.forward_batch(images)
             softmax_output = model.softmax(logits)
-            predictions = dataset.decision_mapping(softmax_output)
+            predictions, probs = dataset.decision_mapping(softmax_output)
             for metric in dataset.metrics:
                 metric.update(predictions,
                               target,

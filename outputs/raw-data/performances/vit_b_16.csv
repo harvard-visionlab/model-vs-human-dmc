@@ -1,0 +1,20 @@
+subj,dataset_name,metric_name,performance
+vit_b_16,edge,accuracy (top-1),0.175
+vit_b_16,silhouette,accuracy (top-1),0.54375
+vit_b_16,cue-conflict,accuracy (top-1),0.3125
+vit_b_16,colour,accuracy (top-1),0.90546875
+vit_b_16,contrast,accuracy (top-1),0.52578125
+vit_b_16,high-pass,accuracy (top-1),0.384375
+vit_b_16,low-pass,accuracy (top-1),0.42578125
+vit_b_16,phase-scrambling,accuracy (top-1),0.5535714285714286
+vit_b_16,power-equalisation,accuracy (top-1),0.85625
+vit_b_16,false-colour,accuracy (top-1),0.8982142857142857
+vit_b_16,rotation,accuracy (top-1),0.703125
+vit_b_16,eidolonI,accuracy (top-1),0.496875
+vit_b_16,eidolonII,accuracy (top-1),0.45234375
+vit_b_16,eidolonIII,accuracy (top-1),0.41171875
+vit_b_16,uniform-noise,accuracy (top-1),0.4546875
+vit_b_16,sketch,accuracy (top-1),0.59875
+vit_b_16,sketch,accuracy (top-5),0.8425
+vit_b_16,stylized,accuracy (top-1),0.4875
+vit_b_16,stylized,accuracy (top-5),0.78625

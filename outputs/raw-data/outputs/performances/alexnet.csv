@@ -1,0 +1,20 @@
+subj,dataset_name,metric_name,performance
+alexnet,edge,accuracy (top-1),0.24375
+alexnet,silhouette,accuracy (top-1),0.4
+alexnet,cue-conflict,accuracy (top-1),0.18671875
+alexnet,colour,accuracy (top-1),0.84453125
+alexnet,contrast,accuracy (top-1),0.3796875
+alexnet,high-pass,accuracy (top-1),0.27109375
+alexnet,low-pass,accuracy (top-1),0.30859375
+alexnet,phase-scrambling,accuracy (top-1),0.42142857142857143
+alexnet,power-equalisation,accuracy (top-1),0.6508928571428572
+alexnet,false-colour,accuracy (top-1),0.8125
+alexnet,rotation,accuracy (top-1),0.540625
+alexnet,eidolonI,accuracy (top-1),0.4171875
+alexnet,eidolonII,accuracy (top-1),0.3515625
+alexnet,eidolonIII,accuracy (top-1),0.3109375
+alexnet,uniform-noise,accuracy (top-1),0.215625
+alexnet,sketch,accuracy (top-1),0.435
+alexnet,sketch,accuracy (top-5),0.715
+alexnet,stylized,accuracy (top-1),0.26125
+alexnet,stylized,accuracy (top-5),0.6075

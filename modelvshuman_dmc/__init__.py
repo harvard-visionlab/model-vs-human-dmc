@@ -6,6 +6,7 @@ from . import plotting
 from .model_evaluator import ModelEvaluator
 from .plotting.plot import plot
 from .version import __version__, VERSION
+from .analysis import Analyze
 
 Evaluate = ModelEvaluator
 Plot = plot

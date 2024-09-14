@@ -11,12 +11,15 @@ PROJ_DIR = str(os.environ.get("MODELVSHUMAN_DMC_DIR", "model-vs-human-dmc"))
 assert (PROJ_DIR != "None"), "Please set the 'MODELVSHUMAN_DMC_DIR' environment variable as described in the README"
 CODE_DIR = pjoin(PROJ_DIR, "modelvshuman_dmc")
 DATASET_DIR = pjoin(PROJ_DIR, "datasets")
-FIGURE_DIR = pjoin(PROJ_DIR, "figures")
-RAW_DATA_DIR = pjoin(PROJ_DIR, "raw-data")
-PERFORMANCES_DIR = pjoin(RAW_DATA_DIR, "performances")
-REPORT_DIR = pjoin(PROJ_DIR, "latex-report/")
+OUTPUT_DIR = pjoin(PROJ_DIR, "outputs")
+FIGURE_DIR = pjoin(PROJ_DIR, "outputs", "figures")
+RAW_DATA_DIR = pjoin(PROJ_DIR, "outputs", "raw-data")
+PERFORMANCES_DIR = pjoin(RAW_DATA_DIR, "outputs", "performances")
+RESULTS_DIR = pjoin(RAW_DATA_DIR, "outputs", "results")
+REPORT_DIR = pjoin(PROJ_DIR, "outputs", "latex-report/")
 ASSETS_DIR = pjoin(PROJ_DIR, "assets/")
 ICONS_DIR = pjoin(ASSETS_DIR, "icons/")
+DECISION_MAPPING = "ImageNetProbabilitiesTo16ClassesMappingWithSortedProbs"
 
 ##################################################################
 # CONSTANTS

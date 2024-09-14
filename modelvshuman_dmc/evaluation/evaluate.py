@@ -127,13 +127,18 @@ class ResultPrinter():
             writer = csv.writer(f)
             writer.writerow(["subj", "session", "trial",
                              "rt", "object_response", "category",
-                             "condition", "imagename"])
-
+                             "condition", "imagename", 
+                             "filename",
+                             "is_correct",
+                             "targ_act", 
+                             "max_nontarg_act", 
+                             "decision_margin"])
 
     def print_batch_to_csv(self, object_response,
-                           batch_targets, paths):
+                           batch_targets, paths, 
+                           target_act, max_nontarget_act, decision_margin):
 
-        for response, target, path in zip(object_response, batch_targets, paths):
+        for idx, (response, target, path) in enumerate(zip(object_response, batch_targets, paths)):
 
             session_name, img_name, condition, category = self.info_mapping(path)
             session_num = int(session_name.split("-")[-1])
@@ -141,11 +146,20 @@ class ResultPrinter():
             if not session_num in self.session_list:
                 self.session_list.append(session_num)
                 self.create_session_csv(session_name)
-
+            
+            filename = "_".join(img_name.split("_")[-2:])
+            is_correct = float(response[0] == category)
+            
             with open(self.csv_file_path, "a") as f:
                 writer = csv.writer(f)
                 writer.writerow([self.model_name,
                                  str(session_num), str(self.index+1),
                                  "NaN", response[0], category,
-                                 condition, img_name])
+                                 condition, img_name,
+                                 filename,
+                                 is_correct,
+                                 target_act[idx],
+                                 max_nontarget_act[idx],
+                                 decision_margin[idx],
+                                ])
             self.index += 1

@@ -27,8 +27,32 @@ class ImageNetProbabilitiesTo1000ClassesMapping(DecisionMapping):
         sorted_indices = np.flip(np.argsort(probabilities), axis=-1)
         return np.take(self.categories, sorted_indices, axis=-1)
 
-class ImageNetProbabilitiesTo16ClassesMapping(DecisionMapping):
-    """Return the 16 class categories sorted by probabilities"""
+# class ImageNetProbabilitiesTo16ClassesMapping(DecisionMapping):
+#     """Return the 16 class categories sorted by probabilities"""
+
+#     def __init__(self, aggregation_function=None):
+#         if aggregation_function is None:
+#             aggregation_function = np.mean
+#         self.aggregation_function = aggregation_function
+#         self.categories = hc.get_human_object_recognition_categories()
+
+#     def __call__(self, probabilities):
+#         self.check_input(probabilities)
+
+#         aggregated_class_probabilities = []
+#         c = hc.HumanCategories()
+
+#         for category in self.categories:
+#             indices = c.get_imagenet_indices_for_category(category)
+#             values = np.take(probabilities, indices, axis=-1)
+#             aggregated_value = self.aggregation_function(values, axis=-1)
+#             aggregated_class_probabilities.append(aggregated_value)
+#         aggregated_class_probabilities = np.transpose(aggregated_class_probabilities)
+#         sorted_indices = np.flip(np.argsort(aggregated_class_probabilities, axis=-1), axis=-1)
+#         return np.take(self.categories, sorted_indices, axis=-1)
+    
+class ImageNetProbabilitiesTo16ClassesMappingWithSortedProbs(DecisionMapping):
+    """Return the 16 class categories sorted by probabilities, and the sorted probabilities"""
 
     def __init__(self, aggregation_function=None):
         if aggregation_function is None:
@@ -36,17 +60,70 @@ class ImageNetProbabilitiesTo16ClassesMapping(DecisionMapping):
         self.aggregation_function = aggregation_function
         self.categories = hc.get_human_object_recognition_categories()
 
-    def __call__(self, probabilities):
+    def __call__(self, logits, probabilities):
+        # Ensure that logits and probabilities are valid and have matching shapes
         self.check_input(probabilities)
-
+        assert logits.shape == probabilities.shape, "Logits and probabilities must have the same shape."
+        
         aggregated_class_probabilities = []
+        aggregated_class_logits = []
         c = hc.HumanCategories()
-
+    
         for category in self.categories:
             indices = c.get_imagenet_indices_for_category(category)
-            values = np.take(probabilities, indices, axis=-1)
-            aggregated_value = self.aggregation_function(values, axis=-1)
-            aggregated_class_probabilities.append(aggregated_value)
-        aggregated_class_probabilities = np.transpose(aggregated_class_probabilities)
-        sorted_indices = np.flip(np.argsort(aggregated_class_probabilities, axis=-1), axis=-1)
-        return np.take(self.categories, sorted_indices, axis=-1)
+            # Aggregate probabilities
+            prob_values = np.take(probabilities, indices, axis=-1)
+            aggregated_prob = self.aggregation_function(prob_values, axis=-1)
+            aggregated_class_probabilities.append(aggregated_prob)
+
+        # Convert lists to arrays and transpose to shape (batch_size, 16)
+        aggregated_class_probabilities = np.array(aggregated_class_probabilities).T  # Shape: (batch_size, 16)
+    
+        # Sort the aggregated probabilities to get sorted indices
+        sorted_indices = np.flip(np.argsort(aggregated_class_probabilities, axis=-1), axis=-1)  # Shape: (batch_size, 16)
+    
+        # Use sorted indices to sort categories, logits, and probabilities
+        sorted_categories = np.take(self.categories, sorted_indices, axis=-1)  # Shape: (batch_size, 16)
+        sorted_probs = np.take_along_axis(aggregated_class_probabilities, sorted_indices, axis=-1)  # Shape: (batch_size, 16)
+        
+        return sorted_categories, sorted_probs
+    
+class ImageNetActivationsTo16ClassesMappingWithSortedProbsAndLogits(DecisionMapping):
+    """Return the 16 class categories sorted by probabilities,
+        and include the sorted probs and logits. To ensure logits/probs agree on
+        correct class, must aggregate logits first, then compute probs on aggregated logits.        
+    """
+
+    def __init__(self, aggregation_function=None):
+        if aggregation_function is None:
+            aggregation_function = np.mean
+        self.aggregation_function = aggregation_function
+        self.categories = hc.get_human_object_recognition_categories()
+
+    def __call__(self, logits, softmax):
+        aggregated_class_logits = []
+        c = hc.HumanCategories()
+    
+        for category in self.categories:
+            indices = c.get_imagenet_indices_for_category(category)
+            # Aggregate logits
+            logits_values = np.take(logits, indices, axis=-1)
+            aggregated_logit = self.aggregation_function(logits_values, axis=-1)
+            aggregated_class_logits.append(aggregated_logit)
+    
+        # Convert lists to arrays and transpose to shape (batch_size, 16)
+        aggregated_class_logits = np.array(aggregated_class_logits).T  # Shape: (batch_size, 16)
+        aggregated_class_probabilities = softmax(aggregated_class_logits)
+
+        # Sort the aggregated probabilities to get sorted indices
+        sorted_indices = np.flip(np.argsort(aggregated_class_probabilities, axis=-1), axis=-1)  # Shape: (batch_size, 16)
+    
+        # Use sorted indices to sort categories, logits, and probabilities
+        sorted_categories = np.take(self.categories, sorted_indices, axis=-1)  # Shape: (batch_size, 16)
+        sorted_probs = np.take_along_axis(aggregated_class_probabilities, sorted_indices, axis=-1)  # Shape: (batch_size, 16)
+        sorted_logits = np.take_along_axis(aggregated_class_logits, sorted_indices, axis=-1)  # Shape: (batch_size, 16)
+        
+        return sorted_categories, sorted_probs, sorted_logits    
+
+class ImageNetProbabilitiesTo16ClassesMapping(ImageNetActivationsTo16ClassesMappingWithSortedProbsAndLogits):
+    pass

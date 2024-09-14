@@ -1,0 +1,20 @@
+subj,dataset_name,metric_name,performance
+resnet50,edge,accuracy (top-1),0.125
+resnet50,silhouette,accuracy (top-1),0.5
+resnet50,cue-conflict,accuracy (top-1),0.18828125
+resnet50,colour,accuracy (top-1),0.9390625
+resnet50,contrast,accuracy (top-1),0.6359375
+resnet50,high-pass,accuracy (top-1),0.31328125
+resnet50,low-pass,accuracy (top-1),0.37890625
+resnet50,phase-scrambling,accuracy (top-1),0.475
+resnet50,power-equalisation,accuracy (top-1),0.8008928571428572
+resnet50,false-colour,accuracy (top-1),0.93125
+resnet50,rotation,accuracy (top-1),0.7046875
+resnet50,eidolonI,accuracy (top-1),0.475
+resnet50,eidolonII,accuracy (top-1),0.41015625
+resnet50,eidolonIII,accuracy (top-1),0.35546875
+resnet50,uniform-noise,accuracy (top-1),0.37578125
+resnet50,sketch,accuracy (top-1),0.54625
+resnet50,sketch,accuracy (top-5),0.78375
+resnet50,stylized,accuracy (top-1),0.34625
+resnet50,stylized,accuracy (top-5),0.6875

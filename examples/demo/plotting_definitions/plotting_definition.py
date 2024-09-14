@@ -4,10 +4,11 @@
 Define decision makers (either human participants or CNN models).
 """
 
-from modelvshuman import constants as c
-from modelvshuman.plotting.colors import *
-from modelvshuman.plotting.decision_makers import DecisionMaker
+from modelvshuman_dmc import constants as c
+from modelvshuman_dmc.plotting.colors import *
+from modelvshuman_dmc.plotting.decision_makers import DecisionMaker
 
+__all__ = ['plotting_definition_template']
 
 def plotting_definition_template(df):
     """Decision makers to compare a few models with human observers.

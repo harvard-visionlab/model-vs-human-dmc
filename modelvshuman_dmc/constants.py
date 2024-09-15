@@ -15,7 +15,7 @@ OUTPUT_DIR = pjoin(PROJ_DIR, "outputs")
 FIGURE_DIR = pjoin(PROJ_DIR, "outputs", "figures")
 RAW_DATA_DIR = pjoin(PROJ_DIR, "outputs", "raw-data")
 PERFORMANCES_DIR = pjoin(RAW_DATA_DIR, "outputs", "performances")
-RESULTS_DIR = pjoin(RAW_DATA_DIR, "outputs", "results")
+RESULTS_DIR = pjoin(PROJ_DIR, "outputs", "results")
 REPORT_DIR = pjoin(PROJ_DIR, "outputs", "latex-report/")
 ASSETS_DIR = pjoin(PROJ_DIR, "assets/")
 ICONS_DIR = pjoin(ASSETS_DIR, "icons/")
@@ -26,6 +26,22 @@ DECISION_MAPPING = "ImageNetProbabilitiesTo16ClassesMappingWithSortedProbs"
 ##################################################################
 
 IMG_SIZE = 224  # size of input images for most models
+
+##################################################################
+# ANALYSES
+##################################################################
+
+DEFAULT_ANALYSES = [
+    "humanvshuman_splithalves"
+]
+
+EXPECTED_SUBJECTS = {
+    "edge": 10,
+    "silhouette": 10,
+    "cue-conflict": 10,
+    "sketch": 7,
+    "stylized": 5,
+}
 
 ##################################################################
 # DATASETS

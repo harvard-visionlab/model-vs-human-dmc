@@ -1,0 +1,25 @@
+subj,dataset,analysis,split_num,splitA,splitB,condition,pearsonr
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],1-10-10,0.6523005447900301
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],16-10-10,0.5828276501586663
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],8-10-10,0.6840999014058848
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],2-10-10,0.5952165221631305
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],128-10-10,0.29231217690710654
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],4-10-10,0.5871392403762761
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],32-10-10,0.48612304314353444
+humanvshuman,eidolonI,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],64-10-10,0.30757576721068
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],1-10-10,0.5565077341744316
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],16-10-10,0.6321842630433623
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],8-10-10,0.6874707119665715
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],2-10-10,0.5407693434048786
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],128-10-10,0.20344572283529094
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],4-10-10,0.5075053931436662
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],32-10-10,0.47744489495559705
+humanvshuman,eidolonI,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],64-10-10,0.4961220422228871
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],1-10-10,0.6055558801435474
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],16-10-10,0.5805625137881059
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],8-10-10,0.6127247194788799
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],2-10-10,0.5662973979480774
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],128-10-10,0.3447486842283049
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],4-10-10,0.5630824920395789
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],32-10-10,0.5321969799978739
+humanvshuman,eidolonI,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],64-10-10,0.5095889666723311

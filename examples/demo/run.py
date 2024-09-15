@@ -31,12 +31,10 @@ def evaluation(batch_size=64, print_predictions=True, num_workers=len(os.sched_g
     params = {"batch_size": batch_size, "print_predictions": print_predictions, "num_workers": num_workers}
     Evaluate()(models, datasets, **params)
 
-def analysis(analyses=["human_vs_human", "model_vs_model", "model_vs_human"]):
+def analysis(analyses=c.DEFAULT_ANALYSES):
     models = ["alexnet", "resnet50", "bagnet33", "simclr_resnet50x1", "vit_b_16", "convnext_large"]    
     models = ["alexnet"]
     datasets = c.DEFAULT_DATASETS
-    datasets = ["colour"]
-    analyses = ["human_vs_human"]
     
     Analyze()(models, datasets, analyses)
     

@@ -7,19 +7,6 @@ from scipy.stats import pearsonr
 from collections import defaultdict
 from tqdm import tqdm
 
-def get_split_halves(N):
-    subjects = list(range(0,N))
-    splits = []
-    for subsetA in combinations(subjects, N//2):
-        subsetA = list(subsetA)
-        subsetB = list(np.setdiff1d(subjects, subsetA))
-        assert len(np.setdiff1d(subsetA,subsetB)) == len(subsetA), "oops"
-        assert len(np.setdiff1d(subsetB,subsetA)) == len(subsetB), "oops"
-        assert (len(subsetA) + len(subsetB)) == N, f"oops, total should be {N}"
-        splits.append((subsetA,subsetB))
-    
-    return splits[0:len(splits)//2] if N%2==0 else splits
-
 def error_consistency(expected_consistency, observed_consistency):
         """Return error consistency as measured by Cohen's kappa."""
 

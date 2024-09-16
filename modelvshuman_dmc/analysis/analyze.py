@@ -45,6 +45,8 @@ class ResultsRecorder:
         df.to_csv(self.filename, index=False)
         
     def save_summary(self, df):
+        df.insert(0, 'dataset', self.dataset)
+        df.insert(1, 'analysis', self.analysis)
         filename = self.filename.replace(".csv", "_summary.csv")
         df.to_csv(filename, index=False)
         
@@ -71,7 +73,10 @@ class Analyze:
         
         # save the results
         results.save()
-        results.save_summary(summary)
+        
+        # save summary
+        if summary is not None:
+            results.save_summary(summary)
         
     def _modelvsmodel_analysis(self, model_name, dataset, analysis, force_recompute=False):
         # setup the results recorder

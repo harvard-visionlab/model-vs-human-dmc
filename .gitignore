@@ -1,5 +1,5 @@
-figures/*
-raw-data/*
+outputs/figures/*
+outputs/results/*
 src/*
 datasets/*
 #examples/*

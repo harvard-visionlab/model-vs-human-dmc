@@ -1,7 +1,7 @@
 subj,dataset,analysis,split_num,splitA,splitB,condition,pearsonr
-humanvshuman,false-colour,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],True,0.6056789094000312
 humanvshuman,false-colour,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],False,0.5987667452651035
-humanvshuman,false-colour,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],True,0.5754165697007652
+humanvshuman,false-colour,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],True,0.6056789094000312
 humanvshuman,false-colour,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],False,0.602176020658537
-humanvshuman,false-colour,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],True,0.6540116881201283
+humanvshuman,false-colour,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],True,0.5754165697007652
 humanvshuman,false-colour,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],False,0.6662809448666248
+humanvshuman,false-colour,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],True,0.6540116881201283

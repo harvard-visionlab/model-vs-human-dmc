@@ -91,7 +91,7 @@ class Analyze:
         else:
             raise NameError(f"Unsupported analisys {analysis}")
             
-    def __call__(self, models, dataset_names, analyses, *args, force_recompute=False, **kwargs):
+    def __call__(self, models, dataset_names, analyses, *args, **kwargs):
         """
         Wrapper call to _analyze function.
 
@@ -121,7 +121,7 @@ class Analyze:
             
             # run the analysis
             analysis_runner = self._get_analysis_runner(analysis)                                    
-            analysis_runner(model, dataset, analysis)
+            analysis_runner(model, dataset, analysis, *args, **kwargs)
                 
         logger.info("Finished analysis.")
         print("Finished analyses.")

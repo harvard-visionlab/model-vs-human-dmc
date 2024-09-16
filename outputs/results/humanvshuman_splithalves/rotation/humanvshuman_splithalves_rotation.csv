@@ -1,13 +1,13 @@
 subj,dataset,analysis,split_num,splitA,splitB,condition,pearsonr
 humanvshuman,rotation,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],0,0.5515799029434629
+humanvshuman,rotation,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],90,0.6881060244942014
 humanvshuman,rotation,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],180,0.6613725671986608
 humanvshuman,rotation,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],270,0.5305387567644037
-humanvshuman,rotation,humanvshuman_splithalves,0,['subject-01' 'subject-02'],['subject-03' 'subject-04'],90,0.6881060244942014
 humanvshuman,rotation,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],0,0.6936230819921831
+humanvshuman,rotation,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],90,0.6209441531895608
 humanvshuman,rotation,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],180,0.5957557966244669
 humanvshuman,rotation,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],270,0.5189263731477651
-humanvshuman,rotation,humanvshuman_splithalves,1,['subject-01' 'subject-03'],['subject-02' 'subject-04'],90,0.6209441531895608
 humanvshuman,rotation,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],0,0.5851157062284409
+humanvshuman,rotation,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],90,0.6883857415394915
 humanvshuman,rotation,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],180,0.6836952935246721
 humanvshuman,rotation,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],270,0.5023008306872411
-humanvshuman,rotation,humanvshuman_splithalves,2,['subject-01' 'subject-04'],['subject-02' 'subject-03'],90,0.6883857415394915

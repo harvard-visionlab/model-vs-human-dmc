@@ -31,12 +31,12 @@ def evaluation(batch_size=64, print_predictions=True, num_workers=len(os.sched_g
     params = {"batch_size": batch_size, "print_predictions": print_predictions, "num_workers": num_workers}
     Evaluate()(models, datasets, **params)
 
-def analysis(analyses=c.DEFAULT_ANALYSES):
+def analysis(analyses=c.DEFAULT_ANALYSES, force_recompute=False):
     models = ["alexnet", "resnet50", "bagnet33", "simclr_resnet50x1", "vit_b_16", "convnext_large"]    
     models = ["alexnet"]
     datasets = c.DEFAULT_DATASETS
     
-    Analyze()(models, datasets, analyses)
+    Analyze()(models, datasets, analyses, force_recompute=force_recompute)
     
 def plotting(plotting_def_name="plotting_definition_template", 
              plot_types=c.DEFAULT_PLOT_TYPES # or e.g., ["accuracy", "shape-bias"]

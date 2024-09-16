@@ -4,6 +4,7 @@ from collections import defaultdict
 from scipy import stats
 from scipy.stats import pearsonr, sem
 from itertools import combinations
+from natsort import natsorted
 
 def get_split_halves(N):
     '''get all possible, unique splits of N subjects into two groups'''
@@ -22,16 +23,16 @@ def get_split_halves(N):
 def compute_splithalf_reliability(df):
     '''compute split half reliability
         - for all possible splits of the subjects into two groups (groupA and groupB)
-        - compute average accuracy for each image across subjects (separately for each group),
-          the correlate scores across items between groupA and groupB.
+        - for each group (separately) compute average accuracy for each image across subjects in that group,
+        - then correlate the item-scores between groupA and groupB.
         - the avg correlation across all splits is used to estimate the split-half 
-        reliability
+          reliability
         - the spearman brown adjustment is used to estimate the reliability
           of the full dataset (aka the noise ceiling).
     '''
     # compute split half reliability
     subjects = df.subj.unique()
-    conditions = df.condition.unique()
+    conditions = natsorted(df.condition.unique())
     splits = get_split_halves(len(subjects))
     
     groupby = ['condition', 'filename']

@@ -36,6 +36,9 @@ def analysis(analyses=c.DEFAULT_ANALYSES, force_recompute=False):
     models = ["alexnet"]
     datasets = c.DEFAULT_DATASETS
     
+    # analyses = ["humanvshuman_pairwise"]
+    # datasets = ["colour"]
+    
     Analyze()(models, datasets, analyses, force_recompute=force_recompute)
     
 def plotting(plotting_def_name="plotting_definition_template", 

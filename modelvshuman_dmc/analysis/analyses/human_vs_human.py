@@ -1,1 +1,2 @@
 from .reliability import compute_splithalf_reliability as humanvshuman_splithalves
+from .pairwise_correlations import compute_pairwise_correlations as humanvshuman_pairwise

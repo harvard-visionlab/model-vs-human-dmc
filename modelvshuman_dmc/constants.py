@@ -34,6 +34,7 @@ IMG_SIZE = 224  # size of input images for most models
 DEFAULT_ANALYSES = [
     "humanvshuman_splithalves",
     "humanvshuman_pairwise",
+    "humanvshuman_error_consistency",
 ]
 
 EXPECTED_SUBJECTS = {

@@ -1,8 +1,8 @@
 import pandas as pd
 from natsort import index_natsorted
 
-from .reliability import compute_splithalf_reliability as humanvshuman_splithalves
-from .pairwise_correlations import compute_pairwise_correlations as humanvshuman_pairwise
+from .reliability import compute_splithalf_reliability as humanvshuman_splithalves_noise_ceiling
+from .pairwise_correlations import compute_pairwise_correlations as humanvshuman_pairwise_accuracy_correlation
 from .error_consistency import compute_confidence_interval, compute_error_consistency
 
 from pdb import set_trace

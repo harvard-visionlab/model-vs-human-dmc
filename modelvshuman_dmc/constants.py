@@ -32,9 +32,11 @@ IMG_SIZE = 224  # size of input images for most models
 ##################################################################
 
 DEFAULT_ANALYSES = [
-    "humanvshuman_splithalves",
-    "humanvshuman_pairwise",
-    "humanvshuman_error_consistency",
+    # "humanvshuman_splithalves_noise_ceiling",
+    # "humanvshuman_pairwise_accuracy_correlation",
+    # "humanvshuman_error_consistency",
+    "modelvsmodel_pairwise_decision_margin_consistency",
+    # "modelvsmodel_pairwise_error_consistency",    
 ]
 
 EXPECTED_SUBJECTS = {
@@ -45,6 +47,9 @@ EXPECTED_SUBJECTS = {
     "stylized": 5,
 }
 
+ANALYSIS_MODEL_GROUPS = dict(
+    demo=["alexnet", "resnet50", "bagnet33", "simclr_resnet50x1", "vit_b_16", "convnext_large"]  
+)
 ##################################################################
 # DATASETS
 ##################################################################

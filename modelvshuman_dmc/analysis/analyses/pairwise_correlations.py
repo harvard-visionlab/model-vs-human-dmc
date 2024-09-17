@@ -6,12 +6,15 @@ from scipy.stats import pearsonr, sem
 from itertools import combinations
 from natsort import natsorted
 
+from pdb import set_trace
+
 def compute_pairwise_correlations(df, subject_col='subj', condition_col='condition', item_col='filename', score='is_correct'):
     '''correlate scores across all pairs of subjects separately for each condition'''
 
     subjects = df[subject_col].unique()
     conditions = natsorted(df[condition_col].unique())
     pairs = list(combinations(subjects, 2))
+    # pairs = sorted([tuple(sorted(pair)) for pair in list(combinations(subjects, 2))], key=lambda x: x[0][0])
     
     groupby = [condition_col, item_col]
     results = defaultdict(list)
@@ -33,6 +36,7 @@ def compute_pairwise_correlations(df, subject_col='subj', condition_col='conditi
             r = pearsonr(cond_df.mean_A, cond_df.mean_B)[0]
             correlations[condition].append(r)
             results['pair_num'].append(pair_num)
+            results['pair'].append(f"{subA}-{subB}")
             results['subject_A'].append(subA)
             results['subject_B'].append(subB)
             results[condition_col].append(condition)
@@ -53,6 +57,8 @@ def compute_pairwise_correlations(df, subject_col='subj', condition_col='conditi
             sem_correlation=sem_correlation,
             avg_corr_lower_ci=confidence_interval[0],
             avg_corr_upper_ci=confidence_interval[1],
+            min_correlation=np.min(scores),
+            max_correlation=np.max(scores),
         )
     
     df = pd.DataFrame(summary)
@@ -60,4 +66,4 @@ def compute_pairwise_correlations(df, subject_col='subj', condition_col='conditi
     df_summary = df_summary.reset_index()
     df_summary = df_summary.rename(columns={'index': condition_col})
 
-    return results, df_summary
+    return dict(results), df_summary

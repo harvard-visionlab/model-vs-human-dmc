@@ -105,7 +105,7 @@ def compute_error_consistency(df1, df2=None, subject_col='subj', condition_col='
             results['observed_consistency'].append(observed_con)
             results['error_consistency'].append(error_con)            
     
-    return results, None
+    return dict(results), None
 
 def compute_error_consistency_summary(results):
     # compute results summary (average across subjects; estimate confidence intervals)

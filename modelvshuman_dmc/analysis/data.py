@@ -21,8 +21,7 @@ def load_human_data(data_dir, expected_subjects=None):
         df = pd.concat([df, df_])
     
     if expected_subjects is not None:
-        num_subjects = len(df.subj.unique())
-        expected_subjects = c.EXPECTED_SUBJECTS.get(dataset, 4)
+        num_subjects = len(df.subj.unique())        
         assert num_subjects==expected_subjects, f"Expected num_subjects={expected_subjects}, got {num_subjects}, dataset={dataset}"
         
     return df

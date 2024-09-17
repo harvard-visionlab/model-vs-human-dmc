@@ -32,11 +32,11 @@ IMG_SIZE = 224  # size of input images for most models
 ##################################################################
 
 DEFAULT_ANALYSES = [
-    # "humanvshuman_splithalves_noise_ceiling",
-    # "humanvshuman_pairwise_accuracy_correlation",
-    # "humanvshuman_error_consistency",
+    "humanvshuman_splithalves_noise_ceiling",
+    "humanvshuman_pairwise_accuracy_correlation",
+    "humanvshuman_error_consistency",
     "modelvsmodel_pairwise_decision_margin_consistency",
-    # "modelvsmodel_pairwise_error_consistency",    
+    "modelvsmodel_pairwise_error_consistency",    
 ]
 
 EXPECTED_SUBJECTS = {

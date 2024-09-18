@@ -7,6 +7,10 @@ from .error_consistency import compute_confidence_interval, compute_error_consis
 
 from pdb import set_trace
 
+__all__ = [
+    'humanvshuman_error_consistency',
+]
+
 def humanvshuman_error_consistency(*args, condition_col='condition', **kwargs):
     results, _ = compute_error_consistency(*args, condition_col=condition_col, **kwargs)
     

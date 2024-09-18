@@ -18,6 +18,8 @@ class DecisionMaker:
     df: any
     color: any = "grey"
     marker: str = "o"
+    markersize: int = 11
+    linewidth: int = 1
     plotting_name: str = None
     file_name: str = None # name to use when saving figures
 

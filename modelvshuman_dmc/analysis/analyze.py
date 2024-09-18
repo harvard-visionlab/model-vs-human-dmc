@@ -140,7 +140,7 @@ class Analyze:
         # save summary
         if summary is not None:
             results.save_summary(summary)
-            
+    
     def _get_analysis_runner(self, analysis):
         if analysis.startswith("humanvshuman"):
             return self._humanvshuman_analysis

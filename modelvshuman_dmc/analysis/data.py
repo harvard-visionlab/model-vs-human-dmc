@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from glob import glob
 from os.path import join as pjoin
+from functools import partial
 
 from .. import constants as c
 
@@ -15,11 +16,13 @@ def load_human_data(data_dir, expected_subjects=None):
         df_ = pd.read_csv(file)
         df_ = df_.sort_values(by='imagename')
         if 'filename' not in df_.columns:
-            df_['filename'] = df_.imagename.apply(lambda x: "_".join(x.split("_")[-2:]))
+            df_['filename'] = df_.imagename.apply(lambda img_name: ("_".join(img_name.split("_")[-2:])).removeprefix("00_"))
         if 'is_correct' not in df_.columns:
             df_['is_correct'] = (df_.object_response==df_.category).astype(float)
+        df_['condition'] = df_['condition'].astype(str)
+        
         df = pd.concat([df, df_])
-    
+        
     if expected_subjects is not None:
         num_subjects = len(df.subj.unique())        
         assert num_subjects==expected_subjects, f"Expected num_subjects={expected_subjects}, got {num_subjects}, dataset={dataset}"
@@ -36,12 +39,13 @@ def load_model_data(data_dir, model_name):
     df_ = pd.read_csv(file)
     
     df_ = df_.sort_values(by='imagename')
-    if 'filename' not in df_.columns:        
-        df_['filename'] = df_.imagename.apply(lambda x: "_".join(x.split("_")[-2:]))
+    if 'filename' not in df_.columns:
+        df_['filename'] = df_.imagename.apply(lambda img_name: ("_".join(img_name.split("_")[-2:])).removeprefix("00_"))
     if 'is_correct' not in df_.columns:
         df_['is_correct'] = (df_.object_response==df_.category).astype(float)
     
     df_['condition'] = df_['condition'].apply(lambda x: '0' if isnan(x) else x)
+    df_['condition'] = df_['condition'].astype(str)
     
     return df_
 

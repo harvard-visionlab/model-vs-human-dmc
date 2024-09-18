@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 from glob import glob
-from itertools import combinations
+from itertools import combinations, product
 from scipy import stats
 from scipy.stats import pearsonr
 from collections import defaultdict

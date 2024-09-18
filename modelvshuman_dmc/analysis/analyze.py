@@ -18,10 +18,9 @@ from pdb import set_trace
 logger = logging.getLogger(__name__)
 
 class ResultsRecorder:
-    def __init__(self, dataset, analysis, subjects, collection=None, data_parent_dir=c.RESULTS_DIR):        
+    def __init__(self, dataset, analysis, collection=None, data_parent_dir=c.RESULTS_DIR):        
         self.dataset = dataset
         self.analysis = analysis
-        self.subjects = subjects
         self.subject_group = analysis.split("_")[0]
         self.collection = collection # modelvs... analyses can be done for different collections of models
         self.raw_data_dir = pjoin(c.RAW_DATA_DIR, dataset)   
@@ -71,7 +70,7 @@ class Analyze:
         analyzer = analyses.__dict__[analysis]
         
         # setup the results recorder
-        results = ResultsRecorder(analysis=analysis, dataset=dataset, subjects='humanvshuman')
+        results = ResultsRecorder(analysis=analysis, dataset=dataset)
         if results.file_exists and force_recompute==False:
             logging.info(f"File exists, skipping: {results.filename}")
             print(f"File exists, skipping: {results.filename}")
@@ -95,7 +94,7 @@ class Analyze:
         analyzer = model_vs_model.__dict__[analysis]
         
         # record the results separately for each modelA-modelB pair
-        results = ResultsRecorder(analysis=analysis, dataset=dataset, subjects=models, collection=model_collection)
+        results = ResultsRecorder(analysis=analysis, dataset=dataset, collection=model_collection)
         if results.file_exists and force_recompute==False:
             logging.info(f"File exists, skipping: {results.filename}")
             print(f"File exists, skipping: {results.filename}")
@@ -114,14 +113,34 @@ class Analyze:
         if summary is not None:
             results.save_summary(summary)
             
-    def _modelvshuman_analysis(self, model_name, dataset, analysis, model_collection, force_recompute=False, **kwargs):
+    def _modelvshuman_analysis(self, dataset, analysis, models, model_collection, force_recompute=False, **kwargs):
 
         # get analysis function
         analyzer = analyses.__dict__[analysis]
         
         # setup the results recorder
-        results = ResultsRecorder(analysis=analysis, dataset=dataset, subjects='humanvshuman')
-    
+        results = ResultsRecorder(analysis=analysis, dataset=dataset, collection=model_collection)
+        if results.file_exists and force_recompute==False:
+            logging.info(f"File exists, skipping: {results.filename}")
+            print(f"File exists, skipping: {results.filename}")
+        
+        # load the human data
+        human_df = data.load_human_data(results.raw_data_dir, expected_subjects=c.EXPECTED_SUBJECTS.get(dataset, 4))
+        
+        # load the models
+        raw_data_dir = pjoin(c.RAW_DATA_DIR, dataset)
+        model_df = data.load_models(raw_data_dir, models) 
+        
+        # run the analysis
+        results.data, summary = analyzer(model_df=model_df, human_df=human_df)
+        
+        # save the results
+        results.save()
+        
+        # save summary
+        if summary is not None:
+            results.save_summary(summary)
+            
     def _get_analysis_runner(self, analysis):
         if analysis.startswith("humanvshuman"):
             return self._humanvshuman_analysis

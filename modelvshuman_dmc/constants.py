@@ -14,7 +14,7 @@ DATASET_DIR = pjoin(PROJ_DIR, "datasets")
 OUTPUT_DIR = pjoin(PROJ_DIR, "outputs")
 FIGURE_DIR = pjoin(PROJ_DIR, "outputs", "figures")
 RAW_DATA_DIR = pjoin(PROJ_DIR, "outputs", "raw-data")
-PERFORMANCES_DIR = pjoin(RAW_DATA_DIR, "outputs", "performances")
+PERFORMANCES_DIR = pjoin(OUTPUT_DIR, "performances")
 RESULTS_DIR = pjoin(PROJ_DIR, "outputs", "results")
 REPORT_DIR = pjoin(PROJ_DIR, "outputs", "latex-report/")
 ASSETS_DIR = pjoin(PROJ_DIR, "assets/")
@@ -32,11 +32,13 @@ IMG_SIZE = 224  # size of input images for most models
 ##################################################################
 
 DEFAULT_ANALYSES = [
-    "humanvshuman_splithalves_noise_ceiling",
-    "humanvshuman_pairwise_accuracy_correlation",
-    "humanvshuman_error_consistency",
-    "modelvsmodel_pairwise_decision_margin_consistency",
-    "modelvsmodel_pairwise_error_consistency",    
+    # "humanvshuman_splithalves_noise_ceiling",
+    # "humanvshuman_pairwise_accuracy_correlation",
+    # "humanvshuman_error_consistency",
+    # "modelvsmodel_pairwise_decision_margin_consistency",
+    # "modelvsmodel_pairwise_error_consistency",  
+    # "modelvshuman_decision_margin_consistency",
+    "modelvshuman_pairwise_error_consistency",
 ]
 
 EXPECTED_SUBJECTS = {

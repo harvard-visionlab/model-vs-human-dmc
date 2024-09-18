@@ -12,8 +12,8 @@ __all__ = [
     'modelvsmodel_pairwise_decision_margin_consistency', 
     'modelvsmodel_pairwise_error_consistency',
 ]
-           
-def modelvsmodel_pairwise_decision_margin_consistency(*args, condition_col='condition', **kwargs):
+
+def modelvsmodel_pairwise_decision_margin_consistency(human_df, model_df, condition_col='condition', **kwargs):
     '''compare models' accuracy for each item/image'''
     results, summary = compute_pairwise_correlations(*args, condition_col=condition_col, 
                                                      score='decision_margin', **kwargs)

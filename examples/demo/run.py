@@ -36,9 +36,7 @@ def analysis(analyses=c.DEFAULT_ANALYSES, force_recompute=False):
     model_collection = "demo"
     # models = ["alexnet"]
     datasets = c.DEFAULT_DATASETS
-    
     # analyses = ["humanvshuman_error_consistency"]
-    # datasets = ["contrast"]
     
     Analyze()(models, datasets, analyses, force_recompute=force_recompute, model_collection=model_collection)
     

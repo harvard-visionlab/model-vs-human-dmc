@@ -147,7 +147,8 @@ class ResultPrinter():
                 self.session_list.append(session_num)
                 self.create_session_csv(session_name)
             
-            filename = "_".join(img_name.split("_")[-2:])
+            filename = ("_".join(img_name.split("_")[-2:])).removeprefix("00_")
+                
             is_correct = float(response[0] == category)
             
             with open(self.csv_file_path, "a") as f:

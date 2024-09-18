@@ -14,7 +14,6 @@ def compute_pairwise_correlations(df, subject_col='subj', condition_col='conditi
     subjects = df[subject_col].unique()
     conditions = natsorted(df[condition_col].unique())
     pairs = list(combinations(subjects, 2))
-    # pairs = sorted([tuple(sorted(pair)) for pair in list(combinations(subjects, 2))], key=lambda x: x[0][0])
     
     groupby = [condition_col, item_col]
     results = defaultdict(list)

@@ -1,0 +1,20 @@
+subj,dataset_name,metric_name,performance
+alexnet_w1_mlp_simclrhn_probe1,edge,accuracy (top-1),0.35
+alexnet_w1_mlp_simclrhn_probe1,silhouette,accuracy (top-1),0.33125
+alexnet_w1_mlp_simclrhn_probe1,cue-conflict,accuracy (top-1),0.31171875
+alexnet_w1_mlp_simclrhn_probe1,colour,accuracy (top-1),0.81328125
+alexnet_w1_mlp_simclrhn_probe1,contrast,accuracy (top-1),0.64140625
+alexnet_w1_mlp_simclrhn_probe1,high-pass,accuracy (top-1),0.36796875
+alexnet_w1_mlp_simclrhn_probe1,low-pass,accuracy (top-1),0.3140625
+alexnet_w1_mlp_simclrhn_probe1,phase-scrambling,accuracy (top-1),0.39285714285714285
+alexnet_w1_mlp_simclrhn_probe1,power-equalisation,accuracy (top-1),0.6080357142857142
+alexnet_w1_mlp_simclrhn_probe1,false-colour,accuracy (top-1),0.7991071428571429
+alexnet_w1_mlp_simclrhn_probe1,rotation,accuracy (top-1),0.58203125
+alexnet_w1_mlp_simclrhn_probe1,eidolonI,accuracy (top-1),0.41640625
+alexnet_w1_mlp_simclrhn_probe1,eidolonII,accuracy (top-1),0.353125
+alexnet_w1_mlp_simclrhn_probe1,eidolonIII,accuracy (top-1),0.3171875
+alexnet_w1_mlp_simclrhn_probe1,uniform-noise,accuracy (top-1),0.31796875
+alexnet_w1_mlp_simclrhn_probe1,sketch,accuracy (top-1),0.52125
+alexnet_w1_mlp_simclrhn_probe1,sketch,accuracy (top-5),0.80375
+alexnet_w1_mlp_simclrhn_probe1,stylized,accuracy (top-1),0.2975
+alexnet_w1_mlp_simclrhn_probe1,stylized,accuracy (top-5),0.61625

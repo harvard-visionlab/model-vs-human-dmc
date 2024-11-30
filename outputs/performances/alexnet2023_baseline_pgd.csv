@@ -1,0 +1,20 @@
+subj,dataset_name,metric_name,performance
+alexnet2023_baseline_pgd,edge,accuracy (top-1),0.34375
+alexnet2023_baseline_pgd,silhouette,accuracy (top-1),0.39375
+alexnet2023_baseline_pgd,cue-conflict,accuracy (top-1),0.25390625
+alexnet2023_baseline_pgd,colour,accuracy (top-1),0.87265625
+alexnet2023_baseline_pgd,contrast,accuracy (top-1),0.425
+alexnet2023_baseline_pgd,high-pass,accuracy (top-1),0.39609375
+alexnet2023_baseline_pgd,low-pass,accuracy (top-1),0.3421875
+alexnet2023_baseline_pgd,phase-scrambling,accuracy (top-1),0.4035714285714286
+alexnet2023_baseline_pgd,power-equalisation,accuracy (top-1),0.6410714285714286
+alexnet2023_baseline_pgd,false-colour,accuracy (top-1),0.8375
+alexnet2023_baseline_pgd,rotation,accuracy (top-1),0.5953125
+alexnet2023_baseline_pgd,eidolonI,accuracy (top-1),0.44296875
+alexnet2023_baseline_pgd,eidolonII,accuracy (top-1),0.36796875
+alexnet2023_baseline_pgd,eidolonIII,accuracy (top-1),0.34296875
+alexnet2023_baseline_pgd,uniform-noise,accuracy (top-1),0.26640625
+alexnet2023_baseline_pgd,sketch,accuracy (top-1),0.5675
+alexnet2023_baseline_pgd,sketch,accuracy (top-5),0.835
+alexnet2023_baseline_pgd,stylized,accuracy (top-1),0.28
+alexnet2023_baseline_pgd,stylized,accuracy (top-5),0.6675

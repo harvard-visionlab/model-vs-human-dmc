@@ -15,6 +15,23 @@ class Wrapper(nn.Module):
         return list_outputs if self.output_layer is None else list_outputs[self.output_layer]
     
 alexnet_w1_mlp_simclrhn_7df7cb689c =  dict(    
+        url='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_w1_mlp/simclr_hn/20241129_093123/final_weights-7df7cb689c.pth',
+        transforms=None, # Add your transforms here
+        meta={
+            "repo": "https://github.com/harvard-visionlab/alexnets",
+            "urls": dict(
+                params='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_w1_mlp/simclr_hn/20241129_093123/params-7df7cb689c.json',
+                train='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_w1_mlp/simclr_hn/20241129_093123/log_train-7df7cb689c.txt',
+                val='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_w1_mlp/simclr_hn/20241129_093123/log_val-7df7cb689c.txt',
+            ),
+            "_metrics": {},
+            "_docs": """
+                ....
+            """,
+        },
+    )
+
+alexnet_w3_mlp_simclrhn_822826223d =  dict(    
         url='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_w3_mlp/simclr_hn/20241129_122633/final_weights-822826223d.pth',
         transforms=None, # Add your transforms here
         meta={
@@ -35,7 +52,11 @@ model_weight_params = dict(
     alexnet_w1_mlp_simclrhn_probe0=alexnet_w1_mlp_simclrhn_7df7cb689c,
     alexnet_w1_mlp_simclrhn_probe1=alexnet_w1_mlp_simclrhn_7df7cb689c,
     alexnet_w1_mlp_simclrhn_probe2=alexnet_w1_mlp_simclrhn_7df7cb689c,
-    alexnet_w1_mlp_simclrhn_probe3=alexnet_w1_mlp_simclrhn_7df7cb689c
+    alexnet_w1_mlp_simclrhn_probe3=alexnet_w1_mlp_simclrhn_7df7cb689c,
+    alexnet_w3_mlp_simclrhn_probe0=alexnet_w3_mlp_simclrhn_822826223d,
+    alexnet_w3_mlp_simclrhn_probe1=alexnet_w3_mlp_simclrhn_822826223d,
+    alexnet_w3_mlp_simclrhn_probe2=alexnet_w3_mlp_simclrhn_822826223d,
+    alexnet_w3_mlp_simclrhn_probe3=alexnet_w3_mlp_simclrhn_822826223d,
 )
 
 def load_model(weights_name, pretrained=True):

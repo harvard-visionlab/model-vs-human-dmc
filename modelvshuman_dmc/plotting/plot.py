@@ -639,8 +639,7 @@ def plot_shape_bias_boxplot(datasets,
     figure_path = pjoin(result_dir, f"{ds.name}_shape-bias_boxplot.pdf")
     fig.savefig(figure_path)
     plt.close()
-
-
+        
 def plot_error_consistency(datasets, decision_maker_fun, result_dir,
                            analysis=a.ErrorConsistency()):
     plot_matrix(datasets=datasets, analysis=analysis,

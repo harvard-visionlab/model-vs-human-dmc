@@ -1,5 +1,6 @@
 outputs/figures/*
 outputs/results/*
+outputs/raw-data/**/*.csv
 outputs/latexreport/assets/*.csv
 src/*
 datasets/*

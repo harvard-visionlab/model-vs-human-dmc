@@ -15,6 +15,14 @@ def run_evaluation():
         "alexnet_w3_mlp_simclrhn_probe1",
         "alexnet_w3_mlp_simclrhn_probe2",
         "alexnet_w3_mlp_simclrhn_probe3",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe0",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe1",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe2",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe3",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe0",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe1",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe2",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe3",        
     ]
     datasets = c.DEFAULT_DATASETS # or e.g. ["cue-conflict", "uniform-noise"]
     params = {"batch_size": 64, "print_predictions": True, "num_workers": 20}

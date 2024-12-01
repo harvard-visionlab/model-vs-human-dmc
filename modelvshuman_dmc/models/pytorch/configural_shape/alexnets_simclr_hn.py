@@ -49,7 +49,7 @@ alexnet_w3_mlp_simclrhn_822826223d =  dict(
     
 alexnet_lgn2_w1_mlp_simclrhn_62fe9c9bf5 = dict(
         url='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn2_w1_mlp/simclr_hn/20241201_074149/final_weights-62fe9c9bf5.pth',
-        transforms=None(), # Add your transforms here
+        transforms=None, # Add your transforms here
         meta={
             "repo": "https://github.com/harvard-visionlab/alexnets",
             "urls": dict(

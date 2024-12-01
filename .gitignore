@@ -1,7 +1,11 @@
 outputs/figures/*
 outputs/results/*
 outputs/raw-data/**/*.csv
+outputs/raw-data/**/*.tex
+outputs/latex-report/assets/*.tex
 outputs/latexreport/assets/*.csv
+outputs/performances/*.csv
+
 src/*
 datasets/*
 #examples/*

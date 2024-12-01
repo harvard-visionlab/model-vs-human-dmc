@@ -31,13 +31,13 @@ def alexnet_lgn2_w1_mlp_simclrhn_probe1(model_name, *args):
     return PytorchModel(model, model_name, *args)
 
 @register_model("pytorch")
-def alexnet_lgn2_w1_mlp_simclrhn_probe1(model_name, *args):
+def alexnet_lgn2_w1_mlp_simclrhn_probe2(model_name, *args):
     from .configural_shape import alexnets_simclr_hn as _models
     model = _models.load_model(model_name, pretrained=True)
     return PytorchModel(model, model_name, *args)
 
 @register_model("pytorch")
-def alexnet_lgn2_w1_mlp_simclrhn_probe1(model_name, *args):
+def alexnet_lgn2_w1_mlp_simclrhn_probe3(model_name, *args):
     from .configural_shape import alexnets_simclr_hn as _models
     model = _models.load_model(model_name, pretrained=True)
     return PytorchModel(model, model_name, *args)
@@ -57,13 +57,13 @@ def alexnet_lgn6_w1_mlp_simclrhn_probe1(model_name, *args):
     return PytorchModel(model, model_name, *args)
 
 @register_model("pytorch")
-def alexnet_lgn6_w1_mlp_simclrhn_probe1(model_name, *args):
+def alexnet_lgn6_w1_mlp_simclrhn_probe2(model_name, *args):
     from .configural_shape import alexnets_simclr_hn as _models
     model = _models.load_model(model_name, pretrained=True)
     return PytorchModel(model, model_name, *args)
 
 @register_model("pytorch")
-def alexnet_lgn6_w1_mlp_simclrhn_probe1(model_name, *args):
+def alexnet_lgn6_w1_mlp_simclrhn_probe3(model_name, *args):
     from .configural_shape import alexnets_simclr_hn as _models
     model = _models.load_model(model_name, pretrained=True)
     return PytorchModel(model, model_name, *args)

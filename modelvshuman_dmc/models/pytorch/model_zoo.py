@@ -16,6 +16,60 @@ def model_pytorch(model_name, *args):
     model = torch.nn.DataParallel(model)
     return PytorchModel(model, model_name, *args)
 
+# ================================================
+
+@register_model("pytorch")
+def alexnet_lgn2_w1_mlp_simclrhn_probe0(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def alexnet_lgn2_w1_mlp_simclrhn_probe1(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def alexnet_lgn2_w1_mlp_simclrhn_probe1(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def alexnet_lgn2_w1_mlp_simclrhn_probe1(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+# ================================================
+
+@register_model("pytorch")
+def alexnet_lgn6_w1_mlp_simclrhn_probe0(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def alexnet_lgn6_w1_mlp_simclrhn_probe1(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def alexnet_lgn6_w1_mlp_simclrhn_probe1(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def alexnet_lgn6_w1_mlp_simclrhn_probe1(model_name, *args):
+    from .configural_shape import alexnets_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+# ================================================
+
 @register_model("pytorch")
 def alexnet_w1_mlp_simclrhn_probe0(model_name, *args):
     from .configural_shape import alexnets_simclr_hn as _models
@@ -40,7 +94,7 @@ def alexnet_w1_mlp_simclrhn_probe3(model_name, *args):
     model = _models.load_model(model_name, pretrained=True)
     return PytorchModel(model, model_name, *args)
 
-# =====
+# ================================================
 
 @register_model("pytorch")
 def alexnet_w3_mlp_simclrhn_probe0(model_name, *args):
@@ -66,7 +120,7 @@ def alexnet_w3_mlp_simclrhn_probe3(model_name, *args):
     model = _models.load_model(model_name, pretrained=True)
     return PytorchModel(model, model_name, *args)
 
-# =====
+# ================================================
 
 @register_model("pytorch")
 def alexnet2023_baseline_pgd(model_name, *args):

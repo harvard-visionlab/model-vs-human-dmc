@@ -24,6 +24,7 @@ def plotting_definition_alexnets_simclr_hn(df):
     blue_shades = [rgb(65, 105, 225), rgb(70, 130, 180), rgb(100, 149, 237), rgb(135, 206, 250)]
     green_shades = [rgb(34, 139, 34), rgb(50, 205, 50), rgb(144, 238, 144), rgb(152, 251, 152)]
     red_shades = [rgb(220, 20, 60), rgb(255, 69, 0),  rgb(255, 99, 71),  rgb(255, 160, 122)]
+    purple_shades = [rgb(128, 0, 128), rgb(148, 0, 211), rgb(186, 85, 211), rgb(221, 160, 221)]
 
     # 1. vit_tiny_patch16_224_mlp_configclr2_alpha090 models (shades of orange)
     for i, model in enumerate([
@@ -51,9 +52,29 @@ def plotting_definition_alexnets_simclr_hn(df):
         "alexnet_w3_mlp_simclrhn_probe3",
     ]):
         decision_makers.append(DecisionMaker(name_pattern=model,
-                               color=green_shades[i], marker="o", df=df,
+                               color=green_shades[i], marker="^", df=df,
                                plotting_name=f"AlexNetW3 SimclrHN {i+1}"))        
-
+    
+    for i, model in enumerate([
+        "alexnet_lgn2_w1_mlp_simclrhn_probe0",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe1",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe2",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe3",
+    ]):
+        decision_makers.append(DecisionMaker(name_pattern=model,
+                               color=red_shades[i], marker="<", df=df,
+                               plotting_name=f"AlexNetLGN2W1 SimclrHN {i+1}")) 
+    
+    for i, model in enumerate([
+        "alexnet_lgn6_w1_mlp_simclrhn_probe0",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe1",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe2",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe3",
+    ]):
+        decision_makers.append(DecisionMaker(name_pattern=model,
+                               color=purple_shades[i], marker=">", df=df,
+                               plotting_name=f"AlexNetLGN6W1 SimclrHN {i+1}")) 
+        
     # 3. vit_b_16 (reference model)
     decision_makers.append(DecisionMaker(name_pattern="vit_b_16",
                            color=rgb(144, 159, 110), marker="v", df=df,
@@ -82,6 +103,7 @@ def get_comparison_decision_makers(df, include_humans=True, humans_last=True):
     blue_shades = [rgb(65, 105, 225), rgb(70, 130, 180), rgb(100, 149, 237), rgb(135, 206, 250)]
     green_shades = [rgb(34, 139, 34), rgb(50, 205, 50), rgb(144, 238, 144), rgb(152, 251, 152)]
     red_shades = [rgb(220, 20, 60), rgb(255, 69, 0),  rgb(255, 99, 71),  rgb(255, 160, 122)]
+    purple_shades = [rgb(128, 0, 128), rgb(148, 0, 211), rgb(186, 85, 211), rgb(221, 160, 221)]
     
     # 1. vit_tiny_patch16_224_mlp_configclr2_alpha090 models (shades of orange)
     for i, model in enumerate([
@@ -104,6 +126,26 @@ def get_comparison_decision_makers(df, include_humans=True, humans_last=True):
                                color=green_shades[i], marker="o", df=df,
                                plotting_name=f"AlexNetW3 SimclrHN {i+1}"))        
 
+    for i, model in enumerate([
+        "alexnet_lgn2_w1_mlp_simclrhn_probe0",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe1",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe2",
+        "alexnet_lgn2_w1_mlp_simclrhn_probe3",
+    ]):
+        d.append(DecisionMaker(name_pattern=model,
+                               color=red_shades[i], marker="o", df=df,
+                               plotting_name=f"AlexNetLGN2W1 SimclrHN {i+1}")) 
+    
+    for i, model in enumerate([
+        "alexnet_lgn6_w1_mlp_simclrhn_probe0",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe1",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe2",
+        "alexnet_lgn6_w1_mlp_simclrhn_probe3",
+    ]):
+        d.append(DecisionMaker(name_pattern=model,
+                               color=purple_shades[i], marker="o", df=df,
+                               plotting_name=f"AlexNetLGN6W1 SimclrHN {i+1}")) 
+        
     # 2. vit_base_patch16_224_mlp_simclr models (shades of blue)
     for i, model in enumerate([
         "resnet50_l2_eps0",

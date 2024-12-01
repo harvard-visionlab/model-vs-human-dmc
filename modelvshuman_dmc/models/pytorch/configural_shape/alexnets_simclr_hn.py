@@ -46,7 +46,42 @@ alexnet_w3_mlp_simclrhn_822826223d =  dict(
                 ....
             """,
         },
+    
+alexnet_lgn2_w1_mlp_simclrhn_62fe9c9bf5 = dict(
+        url='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn2_w1_mlp/simclr_hn/20241201_074149/final_weights-62fe9c9bf5.pth',
+        transforms=None(), # Add your transforms here
+        meta={
+            "repo": "https://github.com/harvard-visionlab/alexnets",
+            "urls": dict(
+                params='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn2_w1_mlp/simclr_hn/20241201_074149/params-62fe9c9bf5.json',
+                train='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn2_w1_mlp/simclr_hn/20241201_074149/log_train-62fe9c9bf5.txt',
+                val='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn2_w1_mlp/simclr_hn/20241201_074149/log_val-62fe9c9bf5.txt',
+            ),
+            "_metrics": {},
+            "_docs": """
+                ....
+            """,
+        },
     )
+
+)
+
+alexnet_lgn6_w1_mlp_simclrhn_2fc9823322 = dict(
+    url='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn6_w1_mlp/simclr_hn/20241201_074739/final_weights-2fc9823322.pth',
+    transforms=None, # Add your transforms here
+    meta={
+        "repo": "https://github.com/harvard-visionlab/alexnets",
+        "urls": dict(
+            params='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn6_w1_mlp/simclr_hn/20241201_074739/params-2fc9823322.json',
+            train='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn6_w1_mlp/simclr_hn/20241201_074739/log_train-2fc9823322.txt',
+            val='https://s3.wasabisys.com/visionlab-members/alvarez/Projects/configural_shape_private/runs06_simclr_hn/in1k/alexnet_lgn6_w1_mlp/simclr_hn/20241201_074739/log_val-2fc9823322.txt',
+        ),
+        "_metrics": {},
+        "_docs": """
+            ....
+        """,
+    },
+)
 
 model_weight_params = dict(
     alexnet_w1_mlp_simclrhn_probe0=alexnet_w1_mlp_simclrhn_7df7cb689c,
@@ -57,6 +92,16 @@ model_weight_params = dict(
     alexnet_w3_mlp_simclrhn_probe1=alexnet_w3_mlp_simclrhn_822826223d,
     alexnet_w3_mlp_simclrhn_probe2=alexnet_w3_mlp_simclrhn_822826223d,
     alexnet_w3_mlp_simclrhn_probe3=alexnet_w3_mlp_simclrhn_822826223d,
+    
+    alexnet_lgn2_w1_mlp_simclrhn_probe0=alexnet_lgn2_w1_mlp_simclrhn_62fe9c9bf5,
+    alexnet_lgn2_w1_mlp_simclrhn_probe1=alexnet_lgn2_w1_mlp_simclrhn_62fe9c9bf5,
+    alexnet_lgn2_w1_mlp_simclrhn_probe2=alexnet_lgn2_w1_mlp_simclrhn_62fe9c9bf5,
+    alexnet_lgn2_w1_mlp_simclrhn_probe3=alexnet_lgn2_w1_mlp_simclrhn_62fe9c9bf5,
+    
+    alexnet_lgn6_w1_mlp_simclrhn_probe0=alexnet_lgn6_w1_mlp_simclrhn_2fc9823322,
+    alexnet_lgn6_w1_mlp_simclrhn_probe1=alexnet_lgn6_w1_mlp_simclrhn_2fc9823322,
+    alexnet_lgn6_w1_mlp_simclrhn_probe2=alexnet_lgn6_w1_mlp_simclrhn_2fc9823322,
+    alexnet_lgn6_w1_mlp_simclrhn_probe3=alexnet_lgn6_w1_mlp_simclrhn_2fc9823322,
 )
 
 def load_model(weights_name, pretrained=True):

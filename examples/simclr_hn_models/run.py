@@ -3,6 +3,7 @@
     
     e.g.,
     python run.py plotting plotting_definition_alexnets_simclr_hn
+    python run.py plotting plotting_definition_simclr_hn
     
     Figures are output to repo/figures/plotting_def_name
 '''

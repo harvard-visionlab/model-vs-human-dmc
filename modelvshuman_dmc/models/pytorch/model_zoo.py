@@ -16,6 +16,38 @@ def model_pytorch(model_name, *args):
     model = torch.nn.DataParallel(model)
     return PytorchModel(model, model_name, *args)
 
+@register_model("pytorch")
+def alexnet_anime_sgd_lr005(model_name, *args):
+    from .anime import alexnets_anime as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+# ================================================
+
+@register_model("pytorch")
+def resnet50_mlp_simclrnh_cdac593124_probe0(model_name, *args):
+    from .configural_shape import resnet50_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def resnet50_mlp_simclrnh_cdac593124_probe1(model_name, *args):
+    from .configural_shape import resnet50_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def resnet50_mlp_simclrnh_cdac593124_probe2(model_name, *args):
+    from .configural_shape import resnet50_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
+@register_model("pytorch")
+def resnet50_mlp_simclrnh_cdac593124_probe3(model_name, *args):
+    from .configural_shape import resnet50_simclr_hn as _models
+    model = _models.load_model(model_name, pretrained=True)
+    return PytorchModel(model, model_name, *args)
+
 # ================================================
 
 @register_model("pytorch")

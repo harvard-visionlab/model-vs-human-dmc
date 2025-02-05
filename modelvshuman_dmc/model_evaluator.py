@@ -6,11 +6,15 @@ import numpy as np
 
 import torch
 from tqdm import tqdm
+from pdb import set_trace
 
 from .helper.decision_margin_distance import compute_decision_margin_distance
 from .datasets import ToTensorflow
 from .evaluation import evaluate as e
 from .utils import load_dataset, load_model
+
+from .models.wrappers.pytorch import PytorchModel
+from .models.wrappers.tensorflow import TensorflowModel
 
 logger = logging.getLogger(__name__)
 MAX_NUM_MODELS_IN_CACHE = 3
@@ -161,9 +165,22 @@ class ModelEvaluator:
         """
         logging.info("Model evaluation.")
         _datasets = self._get_datasets(dataset_names, *args, **kwargs)
+        model_names = []
         for model_name in models:
             datasets = _datasets
-            model, framework = load_model(model_name, *args)
+            if isinstance(model_name, str):                
+                model, framework = load_model(model_name, *args)
+            elif callable(model_name):
+                model = model_name(model_name, *args)
+                model_name = model.model_name
+                if isinstance(model, PytorchModel):
+                    framework = "pytorch"
+                elif isinstance(model, TensorflowModel):
+                    framework = "tensorflow"
+                else:
+                    raise ValueError(f"Unrecognized model type: {model}")
+            model_names.append(model_name)
+            
             evaluator = self._get_evaluator(framework)
             if framework == 'tensorflow':
                 datasets = self._to_tensorflow(datasets)
@@ -187,7 +204,9 @@ class ModelEvaluator:
                                                    dataset_name=dataset.name,
                                                    performance=metric.value,
                                                    metric_name=metric.name)
+            
             if len(models) >= MAX_NUM_MODELS_IN_CACHE:
                 self._remove_model_from_cache(framework, model_name)
 
         logger.info("Finished evaluation.")
+        return model_names
